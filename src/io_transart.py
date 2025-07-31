@@ -149,7 +149,7 @@ def train_step(generated_image, optimizer, a_C: list, a_S: list, intermediate_ou
 
     J_content = compute_content_cost(a_C, a_G)
     J_style = compute_global_style_cost(a_S, a_G[:-1], intermediate_layers)
-    J = compute_total_cost(J_content, J_style, alpha=10, beta=100)
+    J = compute_total_cost(J_content, J_style, alpha=10, beta=500)
 
     J.backward()
     optimizer.step()
